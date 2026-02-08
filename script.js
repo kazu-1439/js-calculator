@@ -28,9 +28,12 @@ $(function () {
       return;
     }
 
-    // 小数点の連続を防止
-    if (value === "." && lastChar === ".") {
-      return;
+    // 小数点は1つまで
+    if (value === ".") {
+      const currentTerm = display.split(/[+\-*/]/).pop();
+      if (currentTerm.includes(".")) {
+     return;
+      }
     }
 
     display += value;
